@@ -1,0 +1,26 @@
+{
+  "name": "@thorough/nash",
+  "version": "0.1.0",
+  "description": "A simple Web Components library.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thorough-dev/nash.git"
+  },
+  "keywords": ["web-components", "javascript", "custom-elements"],
+  "author": "The Thorough Company",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thorough-dev/nash/issues"
+  },
+  "homepage": "https://github.com/thorough-dev/nash#readme",
+  "devDependencies": {
+    "@thorough/dev-configs": "^0.1.1",
+    "lerna": "^2.10.1",
+    "prettier": "^1.12.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  }
+}

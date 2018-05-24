@@ -1,0 +1,6 @@
+{
+  "extends": "../../tslint",
+  "rules": {
+    "no-submodule-imports": [true, "lit-html"]
+  }
+}

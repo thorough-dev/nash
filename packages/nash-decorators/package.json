@@ -1,0 +1,12 @@
+{
+  "name": "@thorough/nash-decorators",
+  "author": "The Thorough Company",
+  "version": "0.1.0",
+  "types": "./lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --outDir lib"
+  }
+}

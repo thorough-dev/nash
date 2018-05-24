@@ -1,0 +1,16 @@
+{
+  "name": "@thorough/nash-tsx",
+  "version": "0.1.0",
+  "description": "A package providing TSX support for TypeScript projects using NashElement.",
+  "author": "The Thorough Company",
+  "types": "./lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --outDir lib"
+  },
+  "dependencies": {
+    "lit-html": "^0.10.0"
+  }
+}
