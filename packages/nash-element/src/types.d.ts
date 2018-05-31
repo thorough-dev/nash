@@ -1,3 +1,3 @@
-interface CustomEventInit extends EventInit {
+declare interface CustomEventInit extends EventInit {
   composed?: boolean;
 }
