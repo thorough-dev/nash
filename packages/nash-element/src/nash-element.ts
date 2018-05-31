@@ -1,7 +1,7 @@
 import { LitElement, html } from '@polymer/lit-element';
-import { TemplateResult } from 'lit-html';
+import { TemplateResult, svg } from 'lit-html';
 import { repeat } from 'lit-html/lib/repeat';
-export { html, TemplateResult, repeat };
+export { html, TemplateResult, repeat, svg };
 
 class StylesCache {
   cache: { [key: string]: HTMLStyleElement } = {};

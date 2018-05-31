@@ -2,7 +2,8 @@
   "name": "@thorough/nash-element",
   "author": "The Thorough Company",
   "version": "0.1.0",
-  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./index.d.ts",
   "publishConfig": {
     "access": "public"
   },
