@@ -38,7 +38,7 @@ export abstract class NashElement extends LitElement {
 
     while (parent) {
       if (parent.styles) {
-        styles.push(...parent.styles);
+        styles.unshift(...parent.styles);
       }
       parent = Object.getPrototypeOf(parent);
     }
