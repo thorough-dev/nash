@@ -1,9 +1,0 @@
-{
-  "extends": "../tsconfig",
-  "compilerOptions": {
-    "jsx": "react",
-    "jsxFactory": "nashLit"
-  },
-  "include": ["src"],
-  "exclude": ["*.spec.ts*"]
-}

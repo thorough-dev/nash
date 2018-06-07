@@ -1,3 +1,0 @@
---watch-extensions ts,tsx
--r ts-node/register
-src/**/*.spec.tsx
