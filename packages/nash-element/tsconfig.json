@@ -1,4 +1,7 @@
 {
   "extends": "../tsconfig",
-  "include": ["src/"]
+  "include": [
+    "src/",
+    "node_modules/@polymer/lit-element/custom_typings/*.d.ts"
+  ]
 }

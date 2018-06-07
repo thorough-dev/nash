@@ -1,6 +1,14 @@
 {
   "name": "@thorough/nash-decorators",
   "author": "The Thorough Company",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thorough-dev/nash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thorough-dev/nash/issues"
+  },
+  "homepage": "https://github.com/thorough-dev/nash#readme",
   "version": "0.1.0",
   "types": "./lib/index.d.ts",
   "publishConfig": {
@@ -8,5 +16,8 @@
   },
   "scripts": {
     "build": "tsc --outDir lib"
+  },
+  "dependencies": {
+    "@thorough/nash-element": "0.1.0"
   }
 }
