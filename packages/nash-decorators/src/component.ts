@@ -1,3 +1,5 @@
+import { NashElement } from '@thorough/nash-element';
+
 export interface IStringable {
   toString(): string;
 }
@@ -10,10 +12,10 @@ export interface INashComponentConfig {
    * It is specified this way so that you can pass a String itself or a
    * Webpack module which can be converted to a string.
    */
-  styles?: IStringable[];
-  use?: any[];
-  registry?: CustomElementRegistry;
   lazy?: boolean;
+  registry?: CustomElementRegistry;
+  styles?: IStringable[];
+  use?: Array<typeof NashElement>;
 }
 
 /**
@@ -25,7 +27,7 @@ export interface INashComponentConfig {
 export const component = (
   tagName: string,
   config: INashComponentConfig = {}
-) => (klass: any) => {
+) => (klass: typeof NashElement) => {
   const {
     styles = [],
     use = [],
@@ -36,10 +38,12 @@ export const component = (
     lazy = false
   } = config;
 
-  klass.styles = styles.map(s => s.toString());
+  // tslint:disable-next-line:no-any
+  (klass as any).styles = styles.map(s => s.toString());
 
   // TODO implement lazy-loading in connectedCallback
-  klass.use = use;
+  // tslint:disable-next-line:no-any
+  (klass as any).use = use;
 
   if (!lazy) {
     registry.define(tagName, klass);

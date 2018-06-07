@@ -1,6 +1,7 @@
+import { NashElement } from '@thorough/nash-element';
 import { component, INashComponentConfig } from './component';
-import { property } from './property';
-export { INashComponentConfig };
+import { IPropertyOptions, property } from './property';
+export { INashComponentConfig, IPropertyOptions, NashElement };
 
 export const nash = {
   component,

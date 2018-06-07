@@ -1,34 +1,18 @@
-import { LitElement, html } from '@polymer/lit-element';
-import { TemplateResult, svg } from 'lit-html';
+import { html, LitElement } from '@polymer/lit-element';
+import { svg, TemplateResult } from 'lit-html';
 import { repeat } from 'lit-html/lib/repeat';
+import { StylesCache } from './styles-cache';
 export { html, TemplateResult, repeat, svg };
-
-class StylesCache {
-  cache: { [key: string]: HTMLStyleElement } = {};
-
-  set(module) {
-    const style = document.createElement('style');
-    style.innerHTML = module.toString();
-    this.cache[module.toString()] = style;
-  }
-
-  get(module) {
-    if (!this.cache[module.toString()]) {
-      this.set(module);
-    }
-
-    return this.cache[module.toString()].cloneNode(true);
-  }
-}
 
 const styleCache = new StylesCache();
 
 export abstract class NashElement extends LitElement {
-  static inheritStyles = true;
-  static styles: string[] = [];
-  static stylesMarkup: string[];
+  public static inheritStyles = true;
+  public static styles: string[] = [];
+  public static stylesMarkup: string[];
+  public static use;
 
-  static gatherStyles(): string[] {
+  public static gatherStyles(): string[] {
     if (!this.inheritStyles) {
       return this.styles;
     }
@@ -46,21 +30,22 @@ export abstract class NashElement extends LitElement {
     return styles;
   }
 
-  styleNodes: HTMLStyleElement[] = [];
+  public styleNodes: HTMLStyleElement[] = [];
 
-  protected html = html;
   protected $repeat = repeat;
+  protected html = html;
 
-  dispatch(eventName: string, detail?: object) {
-    this.dispatchEvent(
-      new CustomEvent(eventName, { bubbles: true, composed: true, detail })
-    );
-  }
-
-  _firstRendered() {
+  public _firstRendered() {
+    // tslint:disable-next-line:no-any
     const styles = (this.constructor as any).gatherStyles();
     this.styleNodes = styles.map(s => styleCache.get(s));
     this.styleNodes.forEach(node => this.shadowRoot.appendChild(node));
+  }
+
+  public dispatch(eventName: string, detail?: object) {
+    this.dispatchEvent(
+      new CustomEvent(eventName, { bubbles: true, composed: true, detail })
+    );
   }
 
   protected abstract _render(_);
