@@ -1,5 +1,3 @@
-import { NashElement } from '@thorough/nash-element';
-
 export interface IPropertyOptions {
   type?:
     | BooleanConstructor
@@ -10,20 +8,18 @@ export interface IPropertyOptions {
     | ObjectConstructor;
 }
 
-export const property = (options?: IPropertyOptions) => (
-  proto: NashElement,
-  propName: string
-) => {
-  console.log('property', proto);
+// tslint:disable-next-line:only-arrow-functions
+export function property(options?: IPropertyOptions) {
+  return (proto: any, propName: string) => {
+    if (!proto.constructor.hasOwnProperty('properties')) {
+      Object.defineProperty(proto.constructor, 'properties', {
+        value: {}
+      });
+    }
 
-  if (!proto.constructor.hasOwnProperty('properties')) {
-    Object.defineProperty(proto.constructor, 'properties', {
-      value: {}
-    });
-  }
+    const { type } = options;
 
-  const { type } = options;
-
-  // tslint:disable-next-line:no-any
-  (proto.constructor as any).properties[propName] = type;
-};
+    // tslint:disable-next-line:no-any
+    (proto.constructor as any).properties[propName] = type;
+  };
+}

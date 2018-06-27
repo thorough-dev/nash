@@ -1,5 +1,3 @@
-import { NashElement } from '@thorough/nash-element';
-
 export interface IStringable {
   toString(): string;
 }
@@ -15,7 +13,8 @@ export interface INashComponentConfig {
   lazy?: boolean;
   registry?: CustomElementRegistry;
   styles?: IStringable[];
-  use?: Array<typeof NashElement>;
+  // tslint:disable-next-line:no-any
+  use?: any[]; // TODO Type better.
 }
 
 /**
@@ -27,7 +26,7 @@ export interface INashComponentConfig {
 export const component = (
   tagName: string,
   config: INashComponentConfig = {}
-) => (klass: typeof NashElement) => {
+) => klass => {
   const {
     styles = [],
     use = [],
