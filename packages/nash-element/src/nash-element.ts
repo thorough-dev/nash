@@ -39,7 +39,9 @@ export abstract class NashElement extends LitElement {
     // tslint:disable-next-line:no-any
     const styles = (this.constructor as any).gatherStyles();
     this.styleNodes = styles.map(s => styleCache.get(s));
-    this.styleNodes.forEach(node => this.shadowRoot.appendChild(node));
+    // `_root` is private in LitElement and we need to access it
+    // tslint:disable-next-line:no-any
+    this.styleNodes.forEach(node => (this as any)._root.appendChild(node));
   }
 
   public dispatch(eventName: string, detail?: object) {
