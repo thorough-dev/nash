@@ -1,0 +1,12 @@
+{
+  "name": "@thorough/nash-demo",
+  "version": "0.0.0",
+  "dependencies": {
+    "@thorough/nash-reconciler": "0.0.0",
+    "neo-blessed": "^0.2.0",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react-blessed": "^0.3.2"
+  }
+}
