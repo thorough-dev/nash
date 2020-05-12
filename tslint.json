@@ -1,3 +1,0 @@
-{
-  "extends": ["@thorough/dev-configs/tslint/base"]
-}
