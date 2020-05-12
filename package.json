@@ -1,7 +1,7 @@
 {
   "name": "@thorough/nash",
   "version": "0.1.0",
-  "description": "A simple Web Components library.",
+  "description": "A system for building thorough user interfaces.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thorough-dev/nash.git"
@@ -11,9 +11,7 @@
   },
   "homepage": "https://github.com/thorough-dev/nash#readme",
   "keywords": [
-    "web-components",
-    "javascript",
-    "custom-elements"
+    "javascript"
   ],
   "author": "The Thorough Company",
   "license": "MIT",
